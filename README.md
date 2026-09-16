@@ -16,11 +16,11 @@ It also works by opening `index.html` directly, though a local server gives more
 
 ## Suggested demo path
 
-1. Start on **Dashboard** and use the private guest search.
-2. Search `jordan.m@example.com` for a mixed-history profile.
-3. Search `maya.r@example.com` for a strong profile.
-4. Search `devon.k@example.com` for a profile with multiple stay concerns.
-5. Click **Review this guest**, complete the three-step flow, and submit it.
+1. Start on **Check a guest** and paste an Airbnb profile link or numeric profile ID.
+2. See an exact account match, including separate account-match and completed-stay provenance.
+3. Try a valid profile ID with no reports, or an invalid link, to see the safe fallback states.
+4. Submit a stay-backed review and watch the account history update in-browser.
+5. Select a high-severity concern to exercise the evidence gate.
 6. Open **Alerts** and demonstrate the fictional guest-correction process.
 7. Use **Reset demo** in the top banner before the next conversation.
 
@@ -28,10 +28,10 @@ It also works by opening `index.html` directly, though a local server gives more
 
 - Host identity and business verification
 - Reservation/PMS verification
-- Exact guest identity matching
+- Exact Airbnb account-ID matching
 - Evidence upload and encrypted storage
 - Guest notification, access, correction, and dispute workflows
-- Score calculation and abuse/fraud detection
+- Abuse/fraud detection
 
 No real guest data should be entered into this prototype.
 
@@ -53,4 +53,4 @@ With the local server running, execute this from the workspace root:
 node projects/rateaguest-prototype/smoke-test.mjs
 ```
 
-The script exercises desktop search and review submission, the correction workflow, and a mobile search/profile flow. It saves screenshots under `projects/rateaguest-prototype/artifacts/`.
+The script exercises exact account lookup, invalid and no-history states, review submission with high-severity evidence, the correction workflow, and a mobile lookup/profile flow. It saves screenshots under `projects/rateaguest-prototype/artifacts/`.
