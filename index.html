@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f7d">
+  <meta name="description" content="Clickable RateAGuest product prototype for feedback sessions.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23078b88' d='M32 2 57 12l-4 34-21 16L11 46 7 12z'/%3E%3Cpath fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' d='m19 31 9 9 18-20'/%3E%3C/svg%3E">
+  <title>RateAGuest — Interactive Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <button class="brand brand-button" data-route="dashboard" aria-label="RateAGuest dashboard">
+        <span class="brand-mark" aria-hidden="true"><span>✓</span></span>
+        <span>RateA<span>Guest</span></span>
+      </button>
+
+      <div class="workspace-pill">
+        <span class="avatar avatar-small">AH</span>
+        <span><strong>Aldrich Stays</strong><small>Verified host</small></span>
+        <span class="chevron">⌄</span>
+      </div>
+
+      <nav class="nav-list">
+        <button class="nav-item is-active" data-route="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-route="search"><span>⌕</span> Search guests</button>
+        <button class="nav-item" data-route="reviews"><span>▤</span> My reviews</button>
+        <button class="nav-item" data-route="alerts"><span>◌</span> Alerts <b class="nav-badge">2</b></button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <button class="nav-item" data-route="settings"><span>⚙</span> Settings</button>
+        <div class="trust-note">
+          <span class="trust-icon">✓</span>
+          <div><strong>Private network</strong><small>Only verified hosts can search.</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <header class="mobile-header">
+      <button class="brand brand-button" data-route="dashboard">
+        <span class="brand-mark"><span>✓</span></span>
+        <span>RateA<span>Guest</span></span>
+      </button>
+      <span class="demo-chip">Prototype</span>
+    </header>
+
+    <main class="main-shell">
+      <div class="demo-banner">
+        <span><strong>Interactive prototype</strong> · All people, stays, and reviews are fictional.</span>
+        <button id="reset-demo" class="text-button">Reset demo</button>
+      </div>
+      <div id="view" class="view" aria-live="polite"></div>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="mobile-nav-item is-active" data-route="dashboard"><span>⌂</span><small>Home</small></button>
+      <button class="mobile-nav-item" data-route="search"><span>⌕</span><small>Search</small></button>
+      <button class="mobile-nav-item mobile-action" data-action="start-review"><span>＋</span><small>Review</small></button>
+      <button class="mobile-nav-item" data-route="reviews"><span>▤</span><small>Reviews</small></button>
+      <button class="mobile-nav-item" data-route="alerts"><span>◌</span><small>Alerts</small></button>
+    </nav>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="assertive"></div>
+  <script src="app.js"></script>
+</body>
+</html>
