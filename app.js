@@ -250,4 +250,16 @@ document.addEventListener("change", event => { if (event.target.matches("[data-d
 document.addEventListener("submit", event => { event.preventDefault(); if (event.target.matches("[data-form='profile-lookup']")) runLookup(new FormData(event.target).get("query")); });
 document.querySelector("#reset-demo").addEventListener("click", () => { state.guests = structuredClone(seedGuests); state.lastLookup = ""; state.lookupStatus = "idle"; state.currentGuest = null; state.reviewFilter = "all"; modalRoot.innerHTML = ""; setRoute("dashboard"); showToast("Demo reset", "All fictional sample data is back to its original state."); });
 document.addEventListener("keydown", event => { if (event.key === "Escape" && modalRoot.innerHTML) { modalRoot.innerHTML = ""; state.reviewDraft = null; } });
-render();
+
+function openExtensionHandoff() {
+  const profile = new URLSearchParams(window.location.hash.slice(1)).get("guest");
+  if (!profile) return false;
+  runLookup(profile);
+  return true;
+}
+
+window.addEventListener("hashchange", () => {
+  if (!openExtensionHandoff()) setRoute("dashboard");
+});
+
+if (!openExtensionHandoff()) render();

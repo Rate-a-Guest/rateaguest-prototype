@@ -69,8 +69,15 @@ try {
   await mobile.getByRole("heading", { name: "Jordan M." }).waitFor();
   await mobile.screenshot({ path: "artifacts/rateaguest-prototype-mobile.png", fullPage: true });
 
+  const handoff = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const handoffUrl = new URL(baseUrl);
+  handoffUrl.hash = `guest=${encodeURIComponent(sampleProfile)}`;
+  await handoff.goto(handoffUrl.toString(), { waitUntil: "networkidle" });
+  await handoff.getByText("Exact Airbnb account match").waitFor();
+  await handoff.getByRole("heading", { name: "Jordan M." }).waitFor();
+
   assert.deepEqual(consoleErrors, []);
-  console.log("RateAGuest prototype smoke test passed: exact-ID lookup, invalid/no-match states, high-severity review, dispute, and mobile flow.");
+  console.log("RateAGuest prototype smoke test passed: exact-ID lookup, extension handoff, invalid/no-match states, high-severity review, dispute, and mobile flow.");
 } finally {
   await browser.close();
 }

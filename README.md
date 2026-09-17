@@ -45,6 +45,14 @@ The included GitHub Actions workflow deploys the repository as a static GitHub P
 
 The prototype is intentionally static: no guest data is sent to a backend, and refreshing the page resets changes.
 
+## Safari extension handoff
+
+The iPhone Safari extension opens an exact account lookup through a URL fragment so the profile ID is not sent to GitHub Pages in the HTTP request:
+
+```text
+https://rate-a-guest.github.io/rateaguest-prototype/#guest=https%3A%2F%2Fwww.airbnb.com%2Fusers%2Fprofile%2F900000000000010001
+```
+
 ## Smoke test
 
 With the local server running, execute this from the workspace root:
